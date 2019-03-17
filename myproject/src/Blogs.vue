@@ -14,18 +14,9 @@ export default {
     };
   },
   methods: {
-    changeTitle() {
-      this.blogTitle = "Amazing Blog Site";
-    }
-  },
-  beforeCreate() {
-    alert("before create hook");
   },
   created() {
     alert("created hook");
   },
-  beforeUpdate() {
-    alert("before update hook");
-  }
 };
 </script>
