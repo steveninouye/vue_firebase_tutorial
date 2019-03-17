@@ -2,8 +2,8 @@
   <div id="app">
     <h1>{{title}}</h1>
     <Navbar/>
-    <AllFriends :buddies="friends"/>
-    <OnlineFriends :buddies="friends"/>
+    <AllFriends :buddies="friends" @delete="deleteFriend"/>
+    <OnlineFriends :buddies="friends" @delete="deleteFriend"/>
   </div>
 </template>
 
@@ -29,6 +29,11 @@ export default {
         { name: "Bowser", online: false }
       ]
     };
+  },
+  methods: {
+    deleteFriend(payload) {
+      console.log(payload);
+    }
   }
 };
 </script>
