@@ -2,22 +2,16 @@
   <div id="app">
     <h1>{{title}}</h1>
     <Navbar/>
-    <AllFriends :buddies="friends" @delete="deleteFriend"/>
-    <OnlineFriends :buddies="friends" @delete="deleteFriend"/>
   </div>
 </template>
 
 <script>
 import Navbar from "./Navbar";
-import AllFriends from "./AllFriends";
-import OnlineFriends from "./OnlineFriends";
 
 export default {
   name: "app",
   components: {
-    Navbar,
-    AllFriends,
-    OnlineFriends
+    Navbar
   },
   data() {
     return {
@@ -30,13 +24,7 @@ export default {
       ]
     };
   },
-  methods: {
-    deleteFriend(payload) {
-      this.friends = this.friends.filter(friend => {
-        return friend.name !== payload.name;
-      });
-    }
-  }
+  methods: {}
 };
 </script>
 
