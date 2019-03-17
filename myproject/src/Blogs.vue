@@ -1,22 +1,29 @@
 <template>
   <div class="blogs">
     <h2>{{ blogTitle }}</h2>
-    <button @click="changeTitle">Change Title</button>
+    <div v-for="post in posts" :key="post.id">
+      <h3>{{post.title}}</h3>
+      <p>{{post.body}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Blogs",
   data() {
     return {
-      blogTitle: "Blogs"
+      blogTitle: "Blogs",
+      posts: []
     };
   },
-  methods: {
-  },
+  methods: {},
   created() {
-    alert("created hook");
-  },
+    axios.get("https://jsonplaceholder.typicode.com/posts/").then(res => {
+      this.posts = res.data;
+    });
+  }
 };
 </script>
